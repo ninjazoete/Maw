@@ -6,8 +6,6 @@
 //  Copyright © 2015 Andrzej Spiess. All rights reserved.
 //
 
-import Foundation
-
 protocol Scanner {
     typealias ScanResult
     

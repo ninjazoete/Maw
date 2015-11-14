@@ -6,8 +6,6 @@
 //  Copyright © 2015 Andrzej Spiess. All rights reserved.
 //
 
-import Foundation
-
 enum TokenType : String {
     case MINUS = "-"
     case PLUS = "+"

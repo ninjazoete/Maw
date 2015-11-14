@@ -6,8 +6,6 @@
 //  Copyright © 2015 Andrzej Spiess. All rights reserved.
 //
 
-import Foundation
-
 extension String {
     
     subscript(integerIndex: Int) -> Character {
