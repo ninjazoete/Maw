@@ -46,16 +46,14 @@ class MawExpressionAddition : MawExpressionBase<Int> {
     
     override func eval() -> Int {
         
-        guard
-            let left = _tokens.first,
-            let right = _tokens.last,
-            let leftValue = Int(left.value),
-            let rightValue = Int(right.value)
-        else {
-            fatalError("There is not enough tokens to do addition")
-        }
+        let sum = _tokens
+            .filter { Int($0.value) != nil }
+            .flatMap { $0 }
+            .map { Int($0.value) }
+            .flatMap { $0 }
+            .reduce(0) { (sum : Int, element : Int) -> Int in sum + element }
         
-        return leftValue + rightValue
+        return sum
     }
     
     private override func valExprTokens(tokens: [MawToken]) -> Bool {
