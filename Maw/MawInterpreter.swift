@@ -99,6 +99,9 @@ class MawInterpreter : Scanner {
         /* Construct and assert addition and substract operations
         // Fetch once because generator will be empty after yielding all elements before for previous expression */
         let generatedTokens = Array(_gen)
+
+        // Print generated tokens for debug.
+        print(generatedTokens)
         
         /* These expressions have failable initializers. If the operation token does not
         // correspond to the expression type it will fail to create thus giving us info what operation was really requested */

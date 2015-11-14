@@ -27,7 +27,7 @@ class MawToken {
 extension MawToken : CustomStringConvertible {
     
     var description: String {
-        return "MAWTOKEN(\(self.type), \(self.value))"
+        return "MAWTOKEN(\(self.type), \(self.value))\n"
     }
     
 }

@@ -60,7 +60,7 @@ class MawExpressionAddition : MawExpressionBase<Int> {
     
     private override func valExprTokens(tokens: [MawToken]) -> Bool {
         guard
-            tokens.count == 3 &&
+            tokens.count >= 3 &&
             tokens[1].type == .PLUS
             else {
                 return false
@@ -93,7 +93,7 @@ class MawExpressionSubtraction : MawExpressionBase<Int> {
     private override func valExprTokens(tokens: [MawToken]) -> Bool {
         
         guard
-            tokens.count == 3 &&
+            tokens.count >= 3 &&
             tokens[1].type == .MINUS
         else {
             return false
