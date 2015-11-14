@@ -72,7 +72,7 @@ class MawExpressionAddition : MawExpressionBase<Int> {
     }
 }
 
-class MawExpressionSubstraction : MawExpressionBase<Int> {
+class MawExpressionSubtraction : MawExpressionBase<Int> {
     
     override init?(tokens: [MawToken]) {
         super.init(tokens: tokens)
@@ -86,7 +86,7 @@ class MawExpressionSubstraction : MawExpressionBase<Int> {
             let leftValue = Int(left.value),
             let rightValue = Int(right.value)
             else {
-                fatalError("There is not enough tokens to do substraction")
+                fatalError("There is not enough tokens to do subtraction")
         }
         
         return leftValue - rightValue

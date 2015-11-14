@@ -103,7 +103,7 @@ class MawInterpreter : Scanner {
         /* These expressions have failable initializers. If the operation token does not
         // correspond to the expression type it will fail to create thus giving us info what operation was really requested */
         let additionExpr = MawExpressionAddition(tokens: generatedTokens)
-        let substractExpr = MawExpressionSubstraction(tokens: generatedTokens)
+        let substractExpr = MawExpressionSubtraction(tokens: generatedTokens)
         
         if let additionExpr = additionExpr {
             return additionExpr.eval()
