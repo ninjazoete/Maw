@@ -12,6 +12,7 @@ var keyboard = NSFileHandle.fileHandleWithStandardInput()
 
 while true {
 
+    print(">>", terminator : "")
     var inputData = keyboard.availableData
     let input = NSString(data: inputData, encoding:NSUTF8StringEncoding) as? String
     

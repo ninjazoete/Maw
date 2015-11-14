@@ -20,7 +20,9 @@ class MawInterpreter : Scanner {
         private var _pos : Int = 0
         
         init(input : String) {
-            self._input = input.stringByReplacingOccurrencesOfString("\n", withString: "")
+            self._input = input
+                .stringByReplacingOccurrencesOfString("\n", withString: "")
+                .stringByReplacingOccurrencesOfString(" ", withString: "")
         }
         
         func generate() -> AnyGenerator<MawToken> {
