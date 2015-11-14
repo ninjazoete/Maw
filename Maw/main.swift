@@ -8,5 +8,16 @@
 
 import Foundation
 
-print("Hello, World!")
+var keyboard = NSFileHandle.fileHandleWithStandardInput()
 
+while true {
+
+    var inputData = keyboard.availableData
+    let input = NSString(data: inputData, encoding:NSUTF8StringEncoding) as? String
+    
+    if let input = input {
+        
+        let interpreter = MawInterpreter(input: input)
+        print(interpreter.scan())
+    }
+}
