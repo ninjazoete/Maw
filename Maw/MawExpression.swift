@@ -47,8 +47,6 @@ class MawExpressionAddition : MawExpressionBase<Int> {
     override func eval() -> Int {
         
         let sum = _tokens
-            .filter { Int($0.value) != nil }
-            .flatMap { $0 }
             .map { Int($0.value) }
             .flatMap { $0 }
             .reduce(0) { $0 + $1 }
