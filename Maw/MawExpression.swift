@@ -51,7 +51,7 @@ class MawExpressionAddition : MawExpressionBase<Int> {
             .flatMap { $0 }
             .map { Int($0.value) }
             .flatMap { $0 }
-            .reduce(0) { (sum : Int, element : Int) -> Int in sum + element }
+            .reduce(0) { $0 + $1 }
         
         return sum
     }
