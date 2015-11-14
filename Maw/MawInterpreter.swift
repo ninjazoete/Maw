@@ -44,14 +44,14 @@ class MawInterpreter : Scanner {
                         
                         guard
                             let _ = Int(_charToScan)
-                            else {
-                                break
+                        else {
+                            break
                         }
                         
                         _potMultiDigit += _charToScan
                         self._pos += 1
                         
-                        if self._pos + 1 >= self._input.characters.count - 1 {
+                        if self._pos >= self._input.characters.count {
                             break
                         }
                         
