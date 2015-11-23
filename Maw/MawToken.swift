@@ -9,7 +9,7 @@
 enum TokenType : String {
     case MINUS = "-"
     case PLUS = "+"
-    case INTEGER
+    case NUMBER
     case EOE
 }
 

@@ -8,6 +8,8 @@
 
 private protocol _MawExpression {
     func valExprTokens(tokens : [MawToken]) -> Bool
+    func valExprTokensOpType(tokens : [MawToken]) -> Bool
+    func valExprTokensOpPos(tokens : [MawToken]) -> Bool
 }
 
 protocol MawExpression {
@@ -33,12 +35,23 @@ class MawExpressionBase<T> : _MawExpression, MawExpression {
     }
     
     private func valExprTokens(tokens : [MawToken]) -> Bool {
+        let validType = valExprTokensOpType(tokens)
+        let validPos = valExprTokensOpPos(tokens)
+        
+        return validType && validPos
+    }
+    
+    private func valExprTokensOpType(tokens: [MawToken]) -> Bool {
+        fatalError("Have to be overriden")
+    }
+    
+    private func valExprTokensOpPos(tokens: [MawToken]) -> Bool {
         fatalError("Have to be overriden")
     }
     
 }
 
-class MawExpressionAddition : MawExpressionBase<Int> {
+class MawExpressionAlgebraicDecimal : MawExpressionBase<Int> {
     
     override init?(tokens: [MawToken]) {
         super.init(tokens: tokens)
@@ -54,45 +67,29 @@ class MawExpressionAddition : MawExpressionBase<Int> {
         return sum
     }
     
-    private override func valExprTokens(tokens: [MawToken]) -> Bool {
-        guard
-            tokens.count >= 3 &&
-            tokens[1].type == .PLUS
-            else {
+    private override func valExprTokensOpType(tokens : [MawToken]) -> Bool {
+        /* Get all tokens that are no NUMBER */
+        for op in tokens.filter({ $0.type != .NUMBER }) {
+            
+            /* We accept for algebraic expression only those types of op tokens */
+            if op.type != .MINUS && op.type != .PLUS {
+                /* Sorry but this is not valid algebraic expression */
                 return false
+            }
         }
         
         return true
     }
-}
-
-class MawExpressionSubtraction : MawExpressionBase<Int> {
     
-    override init?(tokens: [MawToken]) {
-        super.init(tokens: tokens)
-    }
-    
-    override func eval() -> Int {
+    private override func valExprTokensOpPos(tokens : [MawToken]) -> Bool {
         
-        guard
-            let left = _tokens.first,
-            let right = _tokens.last,
-            let leftValue = Int(left.value),
-            let rightValue = Int(right.value)
-            else {
-                fatalError("There is not enough tokens to do subtraction")
-        }
-        
-        return leftValue - rightValue
-    }
-    
-    private override func valExprTokens(tokens: [MawToken]) -> Bool {
-        
-        guard
-            tokens.count >= 3 &&
-            tokens[1].type == .MINUS
-        else {
-            return false
+        /* Validate that on each odd place there is a op */
+        for var i = 0; i < tokens.count; i = i + 1 {
+            if i % 2 != 0 {
+                if tokens[i].type == .NUMBER {
+                    return false
+                }
+            }
         }
         
         return true
