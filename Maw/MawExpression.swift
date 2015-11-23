@@ -59,12 +59,26 @@ class MawExpressionAlgebraicDecimal : MawExpressionBase<Int> {
     
     override func eval() -> Int {
         
-        let sum = _tokens
-            .map { Int($0.value) }
-            .flatMap { $0 }
-            .reduce(0) { $0 + $1 }
-        
-        return sum
+        return _tokens.chainOp(0, chain: { (token) -> (Int, Int) -> Int in
+
+            if token.type == .PLUS {
+                return (+)
+            }
+            
+            if token.type == .MINUS {
+                return (-)
+            }
+            
+            if token.type == .MULTIPLY {
+                return (*)
+            }
+            
+            if token.type == .DIVIDE {
+                return (/)
+            }
+            
+            fatalError("Token type operation is not supported")
+        })
     }
     
     private override func valExprTokensOpType(tokens : [MawToken]) -> Bool {
@@ -72,7 +86,7 @@ class MawExpressionAlgebraicDecimal : MawExpressionBase<Int> {
         for op in tokens.filter({ $0.type != .NUMBER }) {
             
             /* We accept for algebraic expression only those types of op tokens */
-            if op.type != .MINUS && op.type != .PLUS {
+            if op.type != .MINUS && op.type != .PLUS && op.type != .MULTIPLY && op.type != .DIVIDE {
                 /* Sorry but this is not valid algebraic expression */
                 return false
             }

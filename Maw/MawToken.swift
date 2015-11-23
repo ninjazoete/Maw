@@ -6,9 +6,16 @@
 //  Copyright © 2015 Andrzej Spiess. All rights reserved.
 //
 
+protocol Number { }
+
+extension Int : Number { }
+extension Float : Number { }
+
 enum TokenType : String {
     case MINUS = "-"
     case PLUS = "+"
+    case MULTIPLY = "*"
+    case DIVIDE = "/"
     case NUMBER
     case EOE
 }

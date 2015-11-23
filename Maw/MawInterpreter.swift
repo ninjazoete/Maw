@@ -75,6 +75,16 @@ class MawInterpreter : Scanner {
                     return MawToken(type: .MINUS, value: TokenType.MINUS.rawValue)
                 }
                 
+                if _charToScan == TokenType.MULTIPLY.rawValue {
+                    self._pos += 1
+                    return MawToken(type: .MULTIPLY, value: TokenType.MULTIPLY.rawValue)
+                }
+                
+                if _charToScan == TokenType.DIVIDE.rawValue {
+                    self._pos += 1
+                    return MawToken(type: .DIVIDE, value: TokenType.DIVIDE.rawValue)
+                }
+                
                 fatalError("Token could not be generated. Not supported character on input : \(_charToScan)")
             }
         }
