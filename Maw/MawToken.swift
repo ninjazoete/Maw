@@ -23,9 +23,9 @@ enum TokenType : String {
 class MawToken {
     
     let type : TokenType
-    let value : String
+    let value : Lexeme
     
-    init(type : TokenType, value : String) {
+    init(type : TokenType, value : Lexeme) {
         self.type = type
         self.value = value
     }

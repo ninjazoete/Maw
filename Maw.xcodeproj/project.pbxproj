@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		583826601C035D0B005E039D /* SequenceType+ChainOp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5838265F1C035D0B005E039D /* SequenceType+ChainOp.swift */; settings = {ASSET_TAGS = (); }; };
+		583826621C036DA1005E039D /* MawLexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583826611C036DA1005E039D /* MawLexer.swift */; settings = {ASSET_TAGS = (); }; };
 		5868EEB71BF7296400687ED2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5868EEB61BF7296400687ED2 /* main.swift */; };
 		5868EEBE1BF72A6A00687ED2 /* MawToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5868EEBD1BF72A6A00687ED2 /* MawToken.swift */; settings = {ASSET_TAGS = (); }; };
 		5868EEC01BF72A7700687ED2 /* MawInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5868EEBF1BF72A7700687ED2 /* MawInterpreter.swift */; settings = {ASSET_TAGS = (); }; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		5838265F1C035D0B005E039D /* SequenceType+ChainOp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SequenceType+ChainOp.swift"; sourceTree = "<group>"; };
+		583826611C036DA1005E039D /* MawLexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MawLexer.swift; sourceTree = "<group>"; };
 		5868EEB31BF7296400687ED2 /* Maw */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Maw; sourceTree = BUILT_PRODUCTS_DIR; };
 		5868EEB61BF7296400687ED2 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		5868EEBD1BF72A6A00687ED2 /* MawToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MawToken.swift; sourceTree = "<group>"; };
@@ -48,6 +50,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		583826631C036DE5005E039D /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				5868EEC31BF73CD900687ED2 /* MawExpression.swift */,
+				5868EEBD1BF72A6A00687ED2 /* MawToken.swift */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		583826641C036DF4005E039D /* Stages */ = {
+			isa = PBXGroup;
+			children = (
+				583826611C036DA1005E039D /* MawLexer.swift */,
+				5868EEBF1BF72A7700687ED2 /* MawInterpreter.swift */,
+			);
+			name = Stages;
+			sourceTree = "<group>";
+		};
+		583826651C036E0D005E039D /* Convenience */ = {
+			isa = PBXGroup;
+			children = (
+				5868EEC11BF737AC00687ED2 /* String+Subscript.swift */,
+				5838265F1C035D0B005E039D /* SequenceType+ChainOp.swift */,
+			);
+			name = Convenience;
+			sourceTree = "<group>";
+		};
 		5868EEAA1BF7296400687ED2 = {
 			isa = PBXGroup;
 			children = (
@@ -67,12 +96,10 @@
 		5868EEB51BF7296400687ED2 /* Maw */ = {
 			isa = PBXGroup;
 			children = (
+				583826651C036E0D005E039D /* Convenience */,
+				583826641C036DF4005E039D /* Stages */,
+				583826631C036DE5005E039D /* Base */,
 				5868EEB61BF7296400687ED2 /* main.swift */,
-				5868EEBD1BF72A6A00687ED2 /* MawToken.swift */,
-				5868EEBF1BF72A7700687ED2 /* MawInterpreter.swift */,
-				5868EEC11BF737AC00687ED2 /* String+Subscript.swift */,
-				5868EEC31BF73CD900687ED2 /* MawExpression.swift */,
-				5838265F1C035D0B005E039D /* SequenceType+ChainOp.swift */,
 			);
 			path = Maw;
 			sourceTree = "<group>";
@@ -137,6 +164,7 @@
 				5868EEC01BF72A7700687ED2 /* MawInterpreter.swift in Sources */,
 				5868EEB71BF7296400687ED2 /* main.swift in Sources */,
 				583826601C035D0B005E039D /* SequenceType+ChainOp.swift in Sources */,
+				583826621C036DA1005E039D /* MawLexer.swift in Sources */,
 				5868EEC21BF737AC00687ED2 /* String+Subscript.swift in Sources */,
 				5868EEBE1BF72A6A00687ED2 /* MawToken.swift in Sources */,
 			);

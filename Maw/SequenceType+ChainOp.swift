@@ -10,6 +10,7 @@ import Foundation
 
 extension SequenceType where Generator.Element : MawToken {
     
+    /* Custom chaining in case we need to support different kind of types like complex numbers etc. */
     func chainOp(initialValue : Int, chain : (MawToken -> (Int, Int) -> Int)) -> Int {
         
         var result : Int = initialValue
